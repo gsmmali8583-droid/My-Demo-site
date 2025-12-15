@@ -13,11 +13,9 @@ function clearError(input) {
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  // Clear previous errors
   const inputs = ['firstName', 'lastName', 'designation', 'address', 'state'];
   inputs.forEach(id => clearError(document.getElementById(id)));
 
-  // Validate required fields
   let valid = true;
   inputs.forEach(id => {
     const el = document.getElementById(id);
@@ -32,7 +30,7 @@ form.addEventListener('submit', function(event) {
     return;
   }
 
-  // Prepare data to save
+  // Prepare form data
   const formData = {
     firstName: document.getElementById('firstName').value,
     lastName: document.getElementById('lastName').value,
@@ -42,6 +40,6 @@ form.addEventListener('submit', function(event) {
     createdAt: new Date()
   };
 
-  // Save to Firebase
+  // Save data to Firebase
   saveUser(formData);
 });
