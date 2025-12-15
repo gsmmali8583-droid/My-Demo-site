@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8fafc;
+  background-color: #f0f4f8;
   padding: 40px;
   display: flex;
   justify-content: center;
@@ -9,77 +9,40 @@ body {
   background: white;
   padding: 30px 40px;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  max-width: 450px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  max-width: 400px;
   width: 100%;
 }
 h1 {
+  color: #4f46e5;
   margin-bottom: 25px;
-  color: #334155;
-  font-weight: 700;
   text-align: center;
 }
 label {
   display: block;
-  margin-top: 18px;
+  margin-top: 15px;
   margin-bottom: 6px;
-  font-weight: 600;
-  color: #475569;
+  font-weight: bold;
+  color: #333;
 }
 label.required::after {
-  content: " (required)";
-  color: #ef4444;
-  font-weight: normal;
-  font-size: 0.9em;
+  content: " *";
+  color: #e03e3e;
 }
 input[type="text"],
-input[type="email"],
-input[type="url"],
-textarea {
+select {
   width: 100%;
   padding: 10px 12px;
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
-  color: #334155;
   transition: border-color 0.3s ease;
-  resize: vertical;
+  box-sizing: border-box;
 }
 input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-textarea:focus {
+select:focus {
   border-color: #4f46e5;
   outline: none;
-}
-textarea {
-  min-height: 70px;
-}
-fieldset {
-  border: none;
-  padding: 0;
-  margin-top: 18px;
-}
-legend {
-  font-weight: 600;
-  color: #475569;
-  margin-bottom: 8px;
-}
-.checkbox-group,
-.radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.checkbox-group label,
-.radio-group label {
-  font-weight: normal;
-  cursor: pointer;
-}
-input[type="checkbox"],
-input[type="radio"] {
-  margin-right: 8px;
-  cursor: pointer;
 }
 button {
   margin-top: 25px;
@@ -102,14 +65,22 @@ button:hover {
   text-align: center;
   color: #22c55e;
   font-weight: 700;
-  font-size: 1.1rem;
-  min-height: 28px;
+  font-size: 1.2rem;
+  min-height: 30px;
 }
 .error {
-  border-color: #ef4444 !important;
+  border-color: #e03e3e !important;
 }
-.error-message {
-  color: #ef4444;
+
+/* Created by GSM text */
+#createdByGSM {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
   font-size: 0.9rem;
-  margin-top: 4px;
+  color: #999;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.7;
 }

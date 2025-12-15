@@ -1,66 +1,42 @@
-const form = document.getElementById('profForm');
+const form = document.getElementById('employeeForm');
 const successMessage = document.getElementById('successMessage');
 
-// Error elements
-const errors = {
-  name: document.getElementById('nameError'),
-  email: document.getElementById('emailError'),
-  experience: document.getElementById('experienceError')
-};
-
-function clearErrors() {
-  for (const key in errors) {
-    errors[key].textContent = '';
-    document.getElementById(key).classList.remove('error');
-  }
+function showError(input) {
+  input.classList.add('error');
 }
 
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+function clearError(input) {
+  input.classList.remove('error');
 }
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();
-  clearErrors();
+  
+  // Clear previous errors
+  const inputs = ['firstName', 'lastName', 'designation', 'address', 'state'];
+  inputs.forEach(id => clearError(document.getElementById(id)));
   successMessage.textContent = '';
 
-  let isValid = true;
+  // Validate all fields
+  let valid = true;
+  inputs.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) {
+      showError(el);
+      valid = false;
+    }
+  });
 
-  // Validate Name
-  const nameInput = form.name;
-  if (!nameInput.value.trim()) {
-    errors.name.textContent = 'Name is required';
-    nameInput.classList.add('error');
-    isValid = false;
+  if (!valid) {
+    alert('Please fill all the required fields.');
+    return;
   }
 
-  // Validate Email
-  const emailInput = form.email;
-  if (!emailInput.value.trim()) {
-    errors.email.textContent = 'Email is required';
-    emailInput.classList.add('error');
-    isValid = false;
-  } else if (!validateEmail(emailInput.value.trim())) {
-    errors.email.textContent = 'Email format is invalid';
-    emailInput.classList.add('error');
-    isValid = false;
-  }
-
-  // Experience validation
-  const expInput = form.experience;
-  if (!expInput.value.trim()) {
-    errors.experience.textContent = 'Experience is required';
-    expInput.classList.add('error');
-    isValid = false;
-  }
-
-  if (!isValid) return;
-
-  // If all valid, show success message for 30 seconds
-  successMessage.textContent = 'Form Submitted Successfully!';
+  // Show success message and clear form
+  successMessage.textContent = 'Data Saved Successfully!';
   form.reset();
 
-  // Disable submit button to avoid repeated submissions during message
+  // Disable submit button while message is shown
   const submitBtn = form.querySelector('button[type="submit"]');
   submitBtn.disabled = true;
 
