@@ -4,6 +4,8 @@ body {
   padding: 40px;
   display: flex;
   justify-content: center;
+  min-height: 100vh;
+  margin: 0;
 }
 .form-container {
   background: white;
@@ -60,17 +62,6 @@ button {
 button:hover {
   background-color: #4338ca;
 }
-#successMessage {
-  margin-top: 20px;
-  text-align: center;
-  color: #22c55e;
-  font-weight: 700;
-  font-size: 1.2rem;
-  min-height: 30px;
-}
-.error {
-  border-color: #e03e3e !important;
-}
 
 /* Created by GSM text */
 #createdByGSM {
@@ -83,4 +74,8 @@ button:hover {
   user-select: none;
   pointer-events: none;
   opacity: 0.7;
+}
+
+.error {
+  border-color: #e03e3e !important;
 }
