@@ -1,11 +1,8 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Import the functions you need from Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBQ0RkjcAZc46pzI67LuYHD_-Sv1Cx4tR4",
   authDomain: "testing-52280.firebaseapp.com",
@@ -18,4 +15,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app); // Initialize Firestore
+
+// Function to save user data
+export async function saveUser(data) {
+  try {
+    // Add a new document to "users" collection
+    await addDoc(collection(db, "users"), data);
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error.message };
+  }
+}
