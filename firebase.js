@@ -20,10 +20,14 @@ const db = getFirestore(app); // Initialize Firestore
 // Function to save user data
 export async function saveUser(data) {
   try {
+    console.log('Firebase config:', firebaseConfig.projectId);
+    console.log('Attempting to save to Firestore...');
     // Add a new document to "users" collection
-    await addDoc(collection(db, "users"), data);
+    const docRef = await addDoc(collection(db, "users"), data);
+    console.log('Document written with ID: ', docRef.id);
     return { success: true };
   } catch (error) {
+    console.error('Firebase error details:', error);
     return { success: false, error: error.message };
   }
 }
