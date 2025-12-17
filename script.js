@@ -14,7 +14,7 @@ function clearError(input) {
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  const inputs = ['firstName', 'middleName', 'lastName', 'designation', 'address', 'mobileNumber', 'state'];
+  const inputs = ['firstName', 'middleName', 'lastName', 'designation', 'address','pincode', 'mobileNumber', 'state'];
   inputs.forEach(id => clearError(document.getElementById(id)));
 
   let valid = true;
@@ -38,6 +38,7 @@ form.addEventListener('submit', function(event) {
     lastName: document.getElementById('lastName').value,
     designation: document.getElementById('designation').value,
     address: document.getElementById('address').value,
+    pincode: document.getElementById('pincode').value,
     mobileNumber: document.getElementById('mobileNumber').value,
     state: document.getElementById('state').value,
     createdAt: new Date()
