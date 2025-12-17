@@ -64,13 +64,39 @@ button:hover {
   background-color: #4338ca;
 }
 
+.image-slider {
+    position: fixed;
+    top: 20px;           /* adjust vertical position */
+    right: -200px;       /* start outside screen */
+    width: 150px;        /* image width */
+    animation: slideRightToLeft 20s linear infinite;
+    z-index: 1000;
+}
+
+.image-slider img {
+    width: 100%;
+    height: auto;
+}
+
+/* Animation */
+@keyframes slideRightToLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-120vw); /* move across screen */
+    }
+}
+
+
+
 /* Created by GSM text */
 #createdByGSM {
   position: fixed;
   bottom: 10px;
   right: 15px;
   font-size: 0.9rem;
-  color: #999;
+  color: #333;
   font-family: Arial, sans-serif;
   user-select: none;
   pointer-events: none;
