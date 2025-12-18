@@ -73,6 +73,11 @@ button:hover {
     z-index: 1000;
 }
 
+/* Pause animation on hover */
+.image-slider:hover {
+    animation-play-state: paused;
+}
+
 .image-slider img {
     width: 100%;
     height: auto;
@@ -89,6 +94,9 @@ button:hover {
 }
 
 
+#otherEducationContainer {
+    margin-top: 10px;
+}
 
 /* Created by GSM text */
 #createdByGSM {
