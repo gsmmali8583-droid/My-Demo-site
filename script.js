@@ -11,6 +11,22 @@ function clearError(input) {
   input.classList.remove('error');
 }
 
+const educationSelect = document.getElementById("education");
+const otherContainer = document.getElementById("otherEducationContainer");
+const otherInput = document.getElementById("otherEducation");
+
+educationSelect.addEventListener("change", function () {
+    if (this.value === "Others") {
+        otherContainer.style.display = "block";
+        otherInput.required = true;
+    } else {
+        otherContainer.style.display = "none";
+        otherInput.required = false;
+        otherInput.value = "";
+    }
+});
+
+
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
